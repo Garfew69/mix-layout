@@ -10,28 +10,31 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageList = <String>[
-      "assets/images/01.jpg",
-      "assets/images/02.jpg",
-      "assets/images/03.jpg",
-      "assets/images/04.jpg",
-      "assets/images/05.jpg",
+      "assets/images/11.jpg",
+      "assets/images/22.jpg",
+      "assets/images/33.jpg",
+      "assets/images/44.jpg",
+      "assets/images/55.jpg",
     ];
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        scaffoldBackgroundColor: const Color(0xFFF8F9FA),
+        brightness: Brightness.dark,
+        primarySwatch: Colors.grey,
+        scaffoldBackgroundColor: const Color(0xFF1E1E1E),
         appBarTheme: const AppBarTheme(
           elevation: 0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.black87,
           foregroundColor: Colors.white,
+        ),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: Colors.white70),
         ),
       ),
       home: Scaffold(
         body: CustomScrollView(
           slivers: [
-            // Modern App Bar with Gradient
             SliverAppBar(
               expandedHeight: 100,
               floating: true,
@@ -42,15 +45,15 @@ class MainApp extends StatelessWidget {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Color(0xFF667eea),
-                      Color(0xFF764ba2),
-                      Color(0xFFf093fb),
+                      Color(0xFF2C2C2C),
+                      Color(0xFF3D3D3D),
+                      Color(0xFF4E4E4E),
                     ],
                   ),
                 ),
                 child: const FlexibleSpaceBar(
                   title: Text(
-                    'NAMTAN',
+                    'GarFew',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
@@ -59,7 +62,7 @@ class MainApp extends StatelessWidget {
                         Shadow(
                           offset: Offset(0, 2),
                           blurRadius: 4,
-                          color: Colors.black26,
+                          color: Colors.black38,
                         ),
                       ],
                     ),
@@ -68,8 +71,6 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
-
-            // Content
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -83,8 +84,8 @@ class MainApp extends StatelessWidget {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color(0xFF667eea),
-                            Color(0xFF764ba2),
+                            Color(0xFF2C2C2C),
+                            Color(0xFF3D3D3D),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -92,7 +93,7 @@ class MainApp extends StatelessWidget {
                         borderRadius: BorderRadius.circular(25),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFF667eea).withOpacity(0.3),
+                            color: Colors.black.withOpacity(0.5),
                             blurRadius: 20,
                             offset: const Offset(0, 10),
                           ),
@@ -102,14 +103,14 @@ class MainApp extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.photo_library_outlined,
-                            color: Colors.white,
+                            color: Colors.white70,
                             size: 30,
                           ),
                           SizedBox(width: 15),
                           Text(
-                            "หวัดดีเตง",
+                            "หวัดดีฮาบฟู้",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.white70,
                               fontWeight: FontWeight.bold,
                               fontSize: 22,
                               letterSpacing: 1.2,
@@ -118,15 +119,14 @@ class MainApp extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     const SizedBox(height: 25),
-
-                    // ✅ Grid View Section
+                    // Grid View Section
                     SizedBox(
                       height: 400,
                       child: GridView.builder(
                         physics: const BouncingScrollPhysics(),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           crossAxisSpacing: 16,
                           mainAxisSpacing: 16,
@@ -141,7 +141,7 @@ class MainApp extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(25),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black.withOpacity(0.1),
+                                    color: Colors.black.withOpacity(0.4),
                                     blurRadius: 15,
                                     offset: const Offset(0, 8),
                                   ),
@@ -152,12 +152,12 @@ class MainApp extends StatelessWidget {
                                 child: Stack(
                                   fit: StackFit.expand,
                                   children: [
-                                    // ✅ แสดงรูปจริง
                                     Image.asset(
                                       imageList[index],
                                       fit: BoxFit.cover,
+                                      color: Colors.black54,
+                                      colorBlendMode: BlendMode.darken,
                                     ),
-                                    // Overlay
                                     Container(
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
@@ -165,12 +165,11 @@ class MainApp extends StatelessWidget {
                                           end: Alignment.bottomCenter,
                                           colors: [
                                             Colors.transparent,
-                                            Colors.black.withOpacity(0.3),
+                                            Colors.black.withOpacity(0.5),
                                           ],
                                         ),
                                       ),
                                     ),
-                                    // Image number
                                     Positioned(
                                       bottom: 12,
                                       right: 12,
@@ -180,14 +179,14 @@ class MainApp extends StatelessWidget {
                                           vertical: 6,
                                         ),
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.9),
+                                          color: Colors.black87.withOpacity(0.8),
                                           borderRadius: BorderRadius.circular(20),
                                         ),
                                         child: Text(
                                           '${index + 1}',
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.black87,
+                                            color: Colors.white70,
                                           ),
                                         ),
                                       ),
@@ -200,9 +199,7 @@ class MainApp extends StatelessWidget {
                         },
                       ),
                     ),
-
                     const SizedBox(height: 30),
-
                     // List Header
                     Container(
                       width: double.infinity,
@@ -210,8 +207,8 @@ class MainApp extends StatelessWidget {
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           colors: [
-                            Color(0xFFf093fb),
-                            Color(0xFFf5576c),
+                            Color(0xFF3D3D3D),
+                            Color(0xFF4E4E4E),
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -219,7 +216,7 @@ class MainApp extends StatelessWidget {
                         borderRadius: BorderRadius.circular(25),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFFf093fb).withOpacity(0.3),
+                            color: Colors.black.withOpacity(0.5),
                             blurRadius: 20,
                             offset: const Offset(0, 10),
                           ),
@@ -229,14 +226,14 @@ class MainApp extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.list_alt_outlined,
-                            color: Colors.white,
+                            color: Colors.white70,
                             size: 30,
                           ),
                           SizedBox(width: 15),
                           Text(
                             "รายชื่อทั้งหมด",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.white70,
                               fontWeight: FontWeight.bold,
                               fontSize: 22,
                               letterSpacing: 1.2,
@@ -245,9 +242,7 @@ class MainApp extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     const SizedBox(height: 20),
-
                     // List View Section
                     SizedBox(
                       height: 500,
@@ -256,14 +251,15 @@ class MainApp extends StatelessWidget {
                         itemCount: 20,
                         itemBuilder: (context, index) {
                           return AnimatedContainer(
-                            duration: Duration(milliseconds: 300 + (index * 100)),
+                            duration:
+                                Duration(milliseconds: 300 + (index * 100)),
                             margin: const EdgeInsets.only(bottom: 16),
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: const Color(0xFF2A2A2A),
                               borderRadius: BorderRadius.circular(20),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.05),
+                                  color: Colors.black.withOpacity(0.5),
                                   blurRadius: 15,
                                   offset: const Offset(0, 5),
                                 ),
@@ -277,8 +273,8 @@ class MainApp extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                     colors: [
-                                      Colors.primaries[index % Colors.primaries.length],
-                                      Colors.primaries[index % Colors.primaries.length].shade300,
+                                      Colors.grey.shade800,
+                                      Colors.grey.shade700,
                                     ],
                                     begin: Alignment.topLeft,
                                     end: Alignment.bottomRight,
@@ -286,7 +282,7 @@ class MainApp extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(15),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.primaries[index % Colors.primaries.length].withOpacity(0.3),
+                                      color: Colors.black.withOpacity(0.4),
                                       blurRadius: 8,
                                       offset: const Offset(0, 4),
                                     ),
@@ -294,7 +290,7 @@ class MainApp extends StatelessWidget {
                                 ),
                                 child: const Icon(
                                   Icons.person_outline,
-                                  color: Colors.white,
+                                  color: Colors.white70,
                                   size: 30,
                                 ),
                               ),
@@ -303,7 +299,7 @@ class MainApp extends StatelessWidget {
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
-                                  color: Color(0xFF2D3748),
+                                  color: Colors.white70,
                                 ),
                               ),
                               subtitle: Padding(
@@ -311,7 +307,7 @@ class MainApp extends StatelessWidget {
                                 child: Text(
                                   "รายละเอียดเพิ่มเติมของรายการที่ ${index + 1}",
                                   style: TextStyle(
-                                    color: Colors.grey[600],
+                                    color: Colors.grey[400],
                                     fontSize: 14,
                                   ),
                                 ),
@@ -320,20 +316,21 @@ class MainApp extends StatelessWidget {
                                 width: 40,
                                 height: 40,
                                 decoration: BoxDecoration(
-                                  color: Colors.grey[100],
+                                  color: Colors.grey[800],
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Icon(
                                   Icons.arrow_forward_ios,
-                                  color: Colors.grey[600],
+                                  color: Colors.grey[400],
                                   size: 18,
                                 ),
                               ),
                               onTap: () {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                    content: Text('คลิกรายการที่ ${index + 1}'),
-                                    backgroundColor: Colors.primaries[index % Colors.primaries.length],
+                                    content:
+                                        Text('คลิกรายการที่ ${index + 1}'),
+                                    backgroundColor: Colors.grey[850],
                                     behavior: SnackBarBehavior.floating,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
